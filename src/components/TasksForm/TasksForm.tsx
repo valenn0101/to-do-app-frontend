@@ -21,7 +21,35 @@ const optionsProject = [
   { label: "Project 3", value: "project3" },
 ];
 
+type FormType = {
+  taskName: string;
+  taskDescription: string;
+  responsable: string;
+  project: string;
+  status: string;
+};
+
 const TaskForm = () => {
+  const [formData, setFormData] = useState<FormType>({
+    taskName: "",
+    taskDescription: "",
+    responsable: "",
+    project: "",
+    status: "PENDING",
+  });
+
+  const dataForm = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleAutocompleteChange = (name: string, value: string) => {
+    setFormData({ ...formData, [name]: value });
+  };
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    console.log(formData);
+  };
   return (
     <Grid
       container
