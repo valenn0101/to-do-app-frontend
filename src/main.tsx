@@ -9,6 +9,7 @@ import CreateTask from "./pages/CreateTask";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
   {
     path: "/new-project",
     element: <CreateProject />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
     errorElement: <Error />,
   },
 ]);

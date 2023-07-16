@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 type LoginType = {
   username: string;
@@ -89,7 +90,7 @@ const Login: React.FC = () => {
                 variant="contained"
                 sx={{ mt: 1.5, mb: 3 }}
               >
-                Register
+                <Link to="/register">Register</Link>
               </Button>
             </Box>
           </Paper>
