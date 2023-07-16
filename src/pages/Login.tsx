@@ -7,9 +7,28 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+
+type LoginType = {
+  username: string;
+  password: string;
+};
 
 const Login: React.FC = () => {
+  const [loginData, setLoginData] = useState<LoginType>({
+    username: "",
+    password: "",
+  });
+
+  const dataLogin = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLoginData({ ...loginData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    console.log(loginData);
+  };
+
   return (
     <Container maxWidth="sm">
       <Grid
@@ -27,10 +46,12 @@ const Login: React.FC = () => {
             >
               Welcome to Todo App
             </Typography>
-            <Box component="form">
+            <Box component="form" onSubmit={handleSubmit}>
               <TextField
                 fullWidth
                 required
+                name="username"
+                type="text"
                 margin="normal"
                 label="Email/Username"
                 sx={{
@@ -38,10 +59,13 @@ const Login: React.FC = () => {
                   mt: 2,
                   mb: 1.5,
                 }}
+                onChange={dataLogin}
               />
               <TextField
                 fullWidth
                 required
+                name="password"
+                type="password"
                 margin="normal"
                 label="Password"
                 sx={{
@@ -49,6 +73,7 @@ const Login: React.FC = () => {
                   mt: 1.5,
                   mb: 1.5,
                 }}
+                onChange={dataLogin}
               />
               <Button
                 fullWidth
