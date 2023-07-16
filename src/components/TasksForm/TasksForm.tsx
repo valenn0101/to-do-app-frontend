@@ -92,7 +92,6 @@ const TaskForm = () => {
               />
               <Autocomplete
                 fullWidth
-                name="responsable"
                 options={optionsResponsable}
                 getOptionLabel={option => option.label}
                 renderInput={params => (
@@ -111,7 +110,6 @@ const TaskForm = () => {
               />
               <Autocomplete
                 fullWidth
-                name="project"
                 options={optionsProject}
                 getOptionLabel={option => option.label}
                 renderInput={params => (
